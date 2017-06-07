@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" integrity="sha256-5+W3JHnvGYIJkVxUBsw+jBi9+pOlu9enPX3vZapXj5M=" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js" integrity="sha256-97Q90i72uoJfYtVnO2lQcLjbjBySZjLHx50DYhCBuJo=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app" class="ui container" style="margin-top: 30px;">
+    <div class="ui labeled input">
+      <div class="ui label">
+        Selected Skills
+      </div>
+      <input type="text" placeholder="Nothing selected" v-model="skills">
+    </div>
+
+    <select name="skills" multiple class="ui fluid dropdown" @change="change">
+      <option value="">Skills</option>
+      <option value="angular">Angular</option>
+      <option value="css">CSS</option>
+      <option value="design">Graphic Design</option>
+      <option value="ember">Ember</option>
+      <option value="html">HTML</option>
+      <option value="ia">Information Architecture</option>
+      <option value="javascript">Javascript</option>
+      <option value="mech">Mechanical Engineering</option>
+      <option value="meteor">Meteor</option>
+      <option value="node">NodeJS</option>
+      <option value="plumbing">Plumbing</option>
+      <option value="python">Python</option>
+      <option value="rails">Rails</option>
+      <option value="react">React</option>
+      <option value="repair">Kitchen Repair</option>
+      <option value="ruby">Ruby</option>
+      <option value="ui">UI Design</option>
+      <option value="ux">User Experience</option>
+    </select>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        skills: ''
+      },
+      mounted () {
+        $('.ui.dropdown').dropdown()
+      },
+      methods: {
+        change (event) {
+          this.skills = $('select').val()
+        }
+      }
+    })
+  </script>
+</body>
+</html>
